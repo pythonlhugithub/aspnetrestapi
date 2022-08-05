@@ -1,37 +1,76 @@
 using Microsoft.AspNetCore.Mvc;
-
+using aspcotapi.Services;
 namespace aspcotapi.Controllers;
+
 
 [ApiController]
 [Route("[controller]")]
 public class PizzaController : Controller{
 
 
-private static readonly string[] Summary=new []{
-"Freezing",
-"Freezing1",
-"Freezing2",
-"Freezing3",
-"Freezing4",
-"Freezing5"
-
-};
-private readonly ILogger<PizzaController> _logger;
-
-public PizzaController(ILogger<PizzaController> logger)
+ 
+public PizzaController()
 {
-    _logger=logger;
+    
 }
 
-[HttpGet("GetPizza")]
-public IEnumerable<Pizza> Get(){
+//get all actions
+    [HttpGet(Name = "GetPizzaAll")]
+public ActionResult<List<Pizza>> GetAll()=>PizzaService.GetAll();
 
-return Enumerable.Range(1,5).Select(i=>new Pizza{
-    PizzaName=Summary[Random.Shared.Next(Summary.Length)]
-}).ToArray();
+
+
+//get by id action
+
+[HttpGet("{id}")]
+public ActionResult<Pizza> Get(int id){
+    var pizza=PizzaService.Get(id);
+if(pizza==null){
+    return NotFound();
+}
+    return pizza;
+}
+//post action
+
+
+[HttpPost]
+public IActionResult Create(Pizza pizza){
+    PizzaService.Add(pizza);
+    return CreatedAtAction(nameof(Create), new {id=pizza.id}, pizza);
 }
 
 
 
+
+//put action
+
+[HttpPut]
+public IActionResult Update(int id, Pizza pizza){
+    if(id!=pizza.id){
+        return BadRequest();
+    }
+
+    var existingpiza=PizzaService.Get(id);
+
+    if(existingpiza==null){
+        return NotFound();
+    }
+
+    PizzaService.update(pizza);
+
+    return NoContent();
+}
+
+
+[HttpDelete("{id}")]
+public IActionResult Delete(int id){
+    var pizza=PizzaService.Get(id);
+    if(pizza is null)
+    return NotFound();
+    PizzaService.Delete(id);
+return NoContent();
+}
+
+//delete action
 
 }

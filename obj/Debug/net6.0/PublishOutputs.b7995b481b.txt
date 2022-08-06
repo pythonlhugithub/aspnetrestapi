@@ -1,0 +1,11 @@
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\aspcotapi.exe
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\appsettings.Development.json
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\appsettings.json
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\aspcotapi.dll
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\aspcotapi.deps.json
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\aspcotapi.runtimeconfig.json
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\aspcotapi.pdb
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\Microsoft.OpenApi.dll
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\ngnetcore\aspcotapi\bin\Debug\net6.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
